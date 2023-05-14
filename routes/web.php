@@ -1,10 +1,11 @@
 <?php
 
+use App\Http\controllers\portfoliocontroller;
+use App\Http\controllers\cosmeticmanajmentcontroller;
+use App\Http\controllers\cosmeticmanajment;
+use App\Http\controllers\timecontroller;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\portfolioController;
-use App\Http\Controllers\timecontroller;
-use App\Http\Controllers\cosmeticmanajment;
-use App\Http\Controllers\coursemanajment;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,65 +20,73 @@ use App\Http\Controllers\coursemanajment;
 
 Route::get('/', function () {
     return view('layouts.index');
-}); 
-
-Route::get('/home', function () {
-    return view('layouts.index');
 });
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-// courses start
-Route::get('/courses', function () {
-    return view('courses');
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/courses/body', function () {
-    return view('courses.body');
+require __DIR__.'/auth.php';
+
+
+// manajment
+Route::get('/cosmeticmanajment', function () {
+    return view('manajment.cosmeticmanajment');
 });
 
-Route::get('/courses/nail', function () {
-    return view('courses.nail');
-});
+Route::POST('/cosmeticmanajment', [cosmeticmanajment::class , 'addExample']);
 
-Route::get('/courses/heir', function () {
-    return view('courses.heir');
-});
-
-
-
-//cosmetics start
-Route::get('/cosmetics', function () {
-    return view('cosmetics');
-});
-
-//master &7 portfolio 
-Route::get('/booking', [timecontroller::class , 'showdata']);
-
-Route::get('/portfolio', [portfoliocontroller::class , "show"]);
-
-Route::POST('/portfolio', [portfoliocontroller::class , "searchForExamples"]);
-
-
-
-// manajment 
 Route::get('/coursemanajment', function () {
     return view('manajment.coursemanajment');
 });
+
+Route::get('/coursemanajment', []);
+
 
 Route::get('/timemanajment', function () {
     return view('manajment.timemanajment');
 });
 
-Route::get('/cosmeticmanajment', function () {
-    return view('manajment.cosmeticmanajment');
-});
-
 Route::POST('/timemanajment', [timecontroller::class , 'addfild']);
 
-Route::POST('/cosmeticmanajment', [cosmeticmanajment::class , 'addExample']);
+
+Route::get('/cosmeticmanajment-delete' , [cosmeticmanajment::class , 'showfordelete']);
+Route::POST('/cosmeticmanajment-delete/{id}' , [cosmeticmanajment::class , 'soft-delete']);
+
+Route::get('/cosmeticmanajment-update' , [cosmeticmanajment::class , 'showforupdate']);
+Route::POST('/cosmeticmanajment-update/{id}' , [cosmeticmanajment::class , 'update']);
 
 
-// portfolio 
-Route::get('/portfolio', [portfoliocontroller::class , "show"]);
 
-Route::POST('/portfolio', [portfoliocontroller::class , "searchForExamples"]);
+// main
+
+Route::get('/booking', [timecontroller::class , 'showdata']);
+
+
+Route::get('/cosmetics', function () {
+    return view('cosmetics');
+});
+
+Route::get('/portfolio', [portfoliocontroller::class , 'show']);
+
+Route::get('/home', function () {
+    return view('layouts.index');
+});
+
+// email
+Route::get('/add/mail/send' , [mailcontroller::class , 'send']);
+
+
+
+
+
+
+
+
+

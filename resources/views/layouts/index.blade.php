@@ -46,271 +46,182 @@
         <nav id="sidebar" class="sidebar js-sidebar">
             <div class="sidebar-content js-simplebar">
                 <a class="sidebar-brand" href="/">
-                    <span class="align-middle">AlmasiBeatyLand</span>
+                    <span class="align-middle">BeautyLand</span>
                 </a>
                 <!-- ===============================================-->
                 <!--sidebar start-->
                 <!-- ===============================================-->
-                <ul class="sidebar-nav">
-                    <li class="sidebar-header">
-                        مدیریت
-                    </li>
-                    <li class="sidebar-item active">
-                        <a class="sidebar-link" href="/timemanajment">
-                            <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">مدیریت
-                                وقت</span>
-                        </a>
-                    </li>
+                @if (Request::path() != '/')
+                    @yield('sidebar')
+                @else
+                    <ul class="sidebar-nav">
+                        <li class="sidebar-header">
+                            مدیریت
+                        </li>
+                        <li class="sidebar-item ">
+                            <a class="sidebar-link" href="/timemanajment">
+                                <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">مدیریت
+                                    وقت</span>
+                            </a>
+                        </li>
 
-                    <li class="sidebar-item active">
-                        <a class="sidebar-link" href="/coursemanajment">
-                            <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">مدیریت دوره
-                                ها</span>
-                        </a>
-                    </li>
+                        <li class="sidebar-item ">
+                            <a class="sidebar-link" href="/coursemanajment">
+                                <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">مدیریت
+                                    دوره
+                                    ها</span>
+                            </a>
+                        </li>
 
-                    <li class="sidebar-item active">
-                        <a class="sidebar-link" href="/cosmeticmanajment">
-                            <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">مدیریت
-                                محصولات</span>
-                        </a>
-                    </li>
+                        <li class="sidebar-item ">
+                            <a class="sidebar-link" href="/cosmeticmanajment">
+                                <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">افزودن
+                                    محصولات</span>
+                            </a>
+                        </li>
 
-                </ul>
-                <ul class="sidebar-nav">
-                    <li class="sidebar-header">
-                        لوازم آرایشی
-                    </li>
+                        <li class="sidebar-item ">
+                            <a class="sidebar-link" href="/cosmeticmanajment-delete">
+                                <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">حذف
+                                    محصولات</span>
+                            </a>
+                        </li>
 
-                    <li class="sidebar-item active">
-                        <a class="sidebar-link" href="/">
-                            <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">مو</span>
-                        </a>
-                    </li>
+                        <li class="sidebar-item ">
+                            <a class="sidebar-link" href="/cosmeticmanajment-update">
+                                <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">تغییر
+                                    محصولات</span>
+                            </a>
+                        </li>
 
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="pages-profile.html">
-                            <i class="align-middle" data-feather="user"></i> <span class="align-middle">چشم</span>
-                        </a>
-                    </li>
+                    </ul>
+                    <ul class="sidebar-nav">
+                        <li class="sidebar-header">
+                            لوازم آرایشی
+                        </li>
 
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="pages-sign-in.html">
-                            <i class="align-middle" data-feather="log-in"></i> <span class="align-middle">ابرو </span>
-                        </a>
-                    </li>
+                        <li class="sidebar-item ">
+                            <a class="sidebar-link" href="/">
+                                <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">مو</span>
+                            </a>
+                        </li>
 
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="pages-sign-up.html">
-                            <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">لب</span>
-                        </a>
-                    </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="pages-profile.html">
+                                <i class="align-middle" data-feather="user"></i> <span class="align-middle">چشم</span>
+                            </a>
+                        </li>
 
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="pages-blank.html">
-                            <i class="align-middle" data-feather="book"></i> <span class="align-middle">دست و
-                                صورت</span>
-                        </a>
-                    </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="pages-sign-in.html">
+                                <i class="align-middle" data-feather="log-in"></i> <span class="align-middle">ابرو
+                                </span>
+                            </a>
+                        </li>
 
-                    <li class="sidebar-header">
-                        آموزش ها
-                    </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="pages-sign-up.html">
+                                <i class="align-middle" data-feather="user-plus"></i> <span
+                                    class="align-middle">لب</span>
+                            </a>
+                        </li>
 
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="courses/tattoo">
-                            <i class="align-middle" data-feather="square"></i> <span class="align-middle">تتو </span>
-                        </a>
-                    </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="pages-blank.html">
+                                <i class="align-middle" data-feather="book"></i> <span class="align-middle">دست و
+                                    صورت</span>
+                            </a>
+                        </li>
 
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="courses/kasht">
-                            <i class="align-middle" data-feather="check-square"></i> <span
-                                class="align-middle">کاشت</span>
-                        </a>
-                    </li>
+                        <li class="sidebar-header">
+                            آموزش ها
+                        </li>
 
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="courses/heir">
-                            <i class="align-middle" data-feather="grid"></i> <span class="align-middle">رنگ مو</span>
-                        </a>
-                    </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="courses/tattoo">
+                                <i class="align-middle" data-feather="square"></i> <span class="align-middle">تتو
+                                </span>
+                            </a>
+                        </li>
 
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="courses/nail">
-                            <i class="align-middle" data-feather="align-left"></i> <span class="align-middle">آموزش
-                                بند
-                                ناخن</span>
-                        </a>
-                    </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="courses/kasht">
+                                <i class="align-middle" data-feather="check-square"></i> <span
+                                    class="align-middle">کاشت</span>
+                            </a>
+                        </li>
 
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="courses/body">
-                            <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">آموزش
-                                زیبایی
-                                خاص</span>
-                        </a>
-                    </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="courses/heir">
+                                <i class="align-middle" data-feather="grid"></i> <span class="align-middle">رنگ
+                                    مو</span>
+                            </a>
+                        </li>
 
-                    <li class="sidebar-header">
-                        درخشش شما
-                    </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="courses/nail">
+                                <i class="align-middle" data-feather="align-left"></i> <span
+                                    class="align-middle">آموزش
+                                    بند
+                                    ناخن</span>
+                            </a>
+                        </li>
 
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="portfolio">
-                            <i class="align-middle" data-feather="bar-chart-2"></i> <span class="align-middle">نمونه
-                                کار
-                                های ما</span>
-                        </a>
-                    </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="courses/body">
+                                <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">آموزش
+                                    زیبایی
+                                    خاص</span>
+                            </a>
+                        </li>
 
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="booking">
-                            <i class="align-middle" data-feather="map"></i> <span class="align-middle">رزرو
-                                وقت</span>
-                        </a>
-                    </li>
-                </ul>
+                        <li class="sidebar-header">
+                            درخشش شما
+                        </li>
 
-                <div class="sidebar-cta">
-                    <div class="sidebar-cta-content">
-                        <strong class="d-inline-block mb-2">Upgrade to Pro</strong>
-                        <div class="mb-3 text-sm">
-                            Are you looking for more components? Check out our premium version.
-                        </div>
-                        <div class="d-grid">
-                            <a href="upgrade-to-pro.html" class="btn btn-primary">Upgrade to Pro</a>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="portfolio">
+                                <i class="align-middle" data-feather="bar-chart-2"></i> <span
+                                    class="align-middle">نمونه
+                                    کار
+                                    های ما</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item ">
+                            <a class="sidebar-link" href="booking">
+                                <i class="align-middle" data-feather="map"></i> <span class="align-middle">رزرو
+                                    وقت</span>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <div class="sidebar-cta">
+                        <div class="sidebar-cta-content">
+                            <strong class="d-inline-block mb-2">Upgrade to Pro</strong>
+                            <div class="mb-3 text-sm">
+                                Are you looking for more components? Check out our premium version.
+                            </div>
+                            <div class="d-grid">
+                                <a href="upgrade-to-pro.html" class="btn btn-primary">Upgrade to Pro</a>
+                            </div>
                         </div>
                     </div>
-                </div>
             </div>
         </nav>
+        @endif
+
+
         <!-- ===============================================-->
         <!--sidebar end-->
         <!-- ===============================================-->
 
-
-
-        <!-- ===============================================-->
-        <!--header start-->
-        <!-- ===============================================-->
-
         <div class="main">
-            <nav class="navbar navbar-expand navbar-light navbar-bg">
-                <a class="sidebar-toggle js-sidebar-toggle">
-                    <i class="hamburger align-self-center"></i>
-                </a>
+            <!-- ===============================================-->
+            <!--header start-->
+            <!-- ===============================================-->
 
-
-
-                <div class="navbar-collapse collapse">
-                    <ul class="navbar-nav navbar-align">
-                        <a href="cart">
-                            <i class="fa fa-shopping-cart" style="font-size:24px"></i>
-                        </a>
-                        <li class="nav-item dropdown">
-                            <a class="nav-icon dropdown-toggle" href="/login" id="alertsDropdown"
-                                data-bs-toggle="dropdown">
-                                <div class="position-relative">
-                                    {{-- <i class="align-middle" data-feather="bell"></i> --}}
-                                    <span style="font-size:18px">دوره های من</span>
-                                </div>
-                            </a>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-icon dropdown-toggle" href="/home" id="alertsDropdown"
-                                data-bs-toggle="dropdown">
-                                <div class="position-relative">
-                                    {{-- <i class="align-middle" data-feather="bell"></i> --}}
-                                    <span style="font-size:18px">خانه</span>
-                                </div>
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end py-0"
-                                aria-labelledby="alertsDropdown">
-                                {{-- <div class="dropdown-menu-header">
-									4 New Notifications
-								</div> --}}
-                                <div class="list-group">
-                                    <a href="#" class="list-group-item">
-                                        <div class="row g-0 align-items-center">
-                                            <div class="col-2">
-                                                {{-- <i class="text-danger" data-feather="alert-circle"></i> --}}
-                                            </div>
-                                            <div class="col-10">
-                                                {{-- <div class="text-dark">Update completed</div>
-												<div class="text-muted small mt-1">Restart server 12 to complete the update.</div>
-												<div class="text-muted small mt-1">30m ago</div> --}}
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                            </div>
-                        </li>
-
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-icon dropdown-toggle" href="/login" id="alertsDropdown"
-                                data-bs-toggle="dropdown">
-                                <div class="position-relative">
-                                    {{-- <i class="align-middle" data-feather="bell"></i> --}}
-                                    <span style="font-size:18px">ورود</span>
-                                </div>
-                            </a>
-                        </li>
-
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-icon dropdown-toggle" href="/register" id="alertsDropdown"
-                                data-bs-toggle="dropdown">
-                                <div class="position-relative">
-                                    {{-- <i class="align-middle" data-feather="bell"></i> --}}
-                                    <span style="font-size:18px">ثبت نام</span>
-                                </div>
-                            </a>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-icon dropdown-toggle" href="#" id="messagesDropdown"
-                                data-bs-toggle="dropdown">
-                                <div class="position-relative">
-                                    <i class="align-middle"></i>
-                                </div>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end py-0">
-
-
-                                {{-- <li class="nav-item dropdown">
-                            <a class="nav-icon dropdown-toggle d-inline-block d-sm-none" href="#"
-                                data-bs-toggle="dropdown">
-                                <i class="align-middle" data-feather="settings"></i>
-                            </a> --}}
-
-                                {{-- <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#"
-                                data-bs-toggle="dropdown">
-                                {{-- <img src="img/avatars/avatar.jpg" class="avatar img-fluid rounded me-1"
-                                    alt="Charles Hall" /> <span class="text-dark">Charles Hall</span> 
-                            </a> --}}
-                                {{-- <div class="dropdown-menu dropdown-menu-end">
-                                <a class="dropdown-item" href="pages-profile.html"><i class="align-middle me-1"
-                                        data-feather="user"></i> Profile</a>
-                                <a class="dropdown-item" href="#"><i class="align-middle me-1"
-                                        data-feather="pie-chart"></i> Analytics</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="/"><i class="align-middle me-1"
-                                        data-feather="settings"></i> Settings & Privacy</a>
-                                <a class="dropdown-item" href="#"><i class="align-middle me-1"
-                                        data-feather="help-circle"></i> Help Center</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Log out</a>
-                            </div> --}}
-                        </li>
-                    </ul>
-                </div>
-            </nav>
+            {{-- @include('partisal.header') --}}
             <!-- ===============================================-->
             <!--header end-->
             <!-- ===============================================-->
@@ -320,7 +231,8 @@
             <!-- ===============================================-->
             @yield('portfilo')
             @yield('booking')
-            @yield('timemanajment') 
+            @yield('cosmetic-update')
+            @yield('timemanajment')
             @yield('cosmeticmanajment')
             @section('index')
                 <main class="content">
@@ -349,7 +261,8 @@
                                                     <h1 class="mt-1 mb-3">2.382</h1>
                                                     <div class="mb-0">
                                                         <span class="text-danger"> <i
-                                                                class="mdi mdi-arrow-bottom-right"></i> -3.65% </span>
+                                                                class="mdi mdi-arrow-bottom-right"></i> -3.65%
+                                                        </span>
                                                         <span class="text-muted">Since last week</span>
                                                     </div>
                                                 </div>
@@ -370,7 +283,8 @@
                                                     <h1 class="mt-1 mb-3">14.212</h1>
                                                     <div class="mb-0">
                                                         <span class="text-success"> <i
-                                                                class="mdi mdi-arrow-bottom-right"></i> 5.25% </span>
+                                                                class="mdi mdi-arrow-bottom-right"></i> 5.25%
+                                                        </span>
                                                         <span class="text-muted">Since last week</span>
                                                     </div>
                                                 </div>
@@ -393,7 +307,8 @@
                                                     <h1 class="mt-1 mb-3">$21.300</h1>
                                                     <div class="mb-0">
                                                         <span class="text-success"> <i
-                                                                class="mdi mdi-arrow-bottom-right"></i> 6.65% </span>
+                                                                class="mdi mdi-arrow-bottom-right"></i> 6.65%
+                                                        </span>
                                                         <span class="text-muted">Since last week</span>
                                                     </div>
                                                 </div>
@@ -414,7 +329,8 @@
                                                     <h1 class="mt-1 mb-3">64</h1>
                                                     <div class="mb-0">
                                                         <span class="text-danger"> <i
-                                                                class="mdi mdi-arrow-bottom-right"></i> -2.25% </span>
+                                                                class="mdi mdi-arrow-bottom-right"></i> -2.25%
+                                                        </span>
                                                         <span class="text-muted">Since last week</span>
                                                     </div>
                                                 </div>
@@ -617,18 +533,21 @@
                         <div class="col-6 text-end">
                             <ul class="list-inline">
                                 <li class="list-inline-item">
-                                    <a class="text-muted" href="https://adminkit.io/" target="_blank">ارتباط با
+                                    <a class="text-muted" href="https://adminkit.io/" target="_blank">ارتباط
+                                        با
                                         ما</a>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a class="text-muted" href="https://adminkit.io/" target="_blank">آدرس کامل
+                                    <a class="text-muted" href="https://adminkit.io/" target="_blank">آدرس
+                                        کامل
                                         سالن</a>
                                 </li>
                                 <li class="list-inline-item">
                                     <a class="text-muted" href="https://adminkit.io/" target="_blank">دسترسی</a>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a class="text-muted" href="https://adminkit.io/" target="_blank">قوانین و
+                                    <a class="text-muted" href="https://adminkit.io/" target="_blank">قوانین
+                                        و
                                         مقررات</a>
                                 </li>
                             </ul>

@@ -32,7 +32,7 @@ class timecontroller extends Controller
         $myStart =$request->Start;
         $myEnd = $request->End;
         $myJob = $request->Job;
-        
+        $witchradio = $request->flexRadioDefault;
         // $myradio = request('flexRadioDefault');
         // dd($myradio);
 
@@ -49,11 +49,19 @@ class timecontroller extends Controller
         $insert ->Start = $myStart;
         $insert ->End = $myEnd;
         $insert ->Job = $myJob;
-        $insert ->status = 'free';
+        $witch = $witchradio;
+        if($witch == 'free')
+        {
+            $insert ->status = 'free';
+        }else{
+            $insert ->status = 'resreved';
+        }
         $insert -> save();
         
-        $final = "عملیات با موفقیت انجام شد";
-        return redirect('/timemanajment')->with('final' ,$final);
+        // session(['final' => 'عملیات با موفقیت انجام شد']);
+
+        $request->session()->flash('final', 'عملیات با موفقیت انجام شد');
+        return redirect('/timemanajment');
     }
 
     public function showdata()
@@ -66,5 +74,11 @@ class timecontroller extends Controller
 
 
 
+    }
+    public function show(Request $request, $id)
+    {
+        $value = $request->session()->get('key');
+
+        //
     }
 }
